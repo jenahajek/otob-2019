@@ -29,14 +29,14 @@ gulp.task('serve', function() {
         open      : false, // 2
         notify    : false, // 3
         server    : {
-            baseDir: './dist/',
+            baseDir: './docs/',
             index: 'index.html'
         },
         files     : [      // 4
-            './dist/css/*.css',
-            './dist/js/**/*.js',
-            './dist/img/**/*',
-            './dist/*.html'
+            './docs/css/*.css',
+            './docs/js/**/*.js',
+            './docs/img/**/*',
+            './docs/*.html'
         ]
     });
 });
