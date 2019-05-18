@@ -1,9 +1,9 @@
 module.exports={
   context: __dirname + "/src",
-  entry: "./index",
+  entry: "./js/index",
   output:{
     filename:"app.js",
-    path:__dirname+"/dist"
+    path:__dirname+"/dist/js"
   },
   module: {
     loaders: [

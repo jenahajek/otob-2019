@@ -1,0 +1,77 @@
+// ==========================
+// MIXINS
+// Commonly used mixins
+// ==========================
+
+// --------------------------
+// Breakpoints/tweakpoints manager
+// --------------------------
+// more info: http://www.sitepoint.com/breakpoints-tweakpoints-sass/
+@mixin respond-to($point) {
+    @if map-has-key($breakpoints, $point) {
+        @media (max-width: map-get($breakpoints, $point)) {
+            @content;
+        }
+    }
+
+    // mixin for retina images
+    @else if $point == retina {
+        @media
+        (min--moz-device-pixel-ratio: 1.3),
+        (-o-min-device-pixel-ratio: 2.6/2),
+        (-webkit-min-device-pixel-ratio: 1.3),
+        (min-device-pixel-ratio: 1.3),
+        (min-resolution: 1.3dppx) {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "Could not find breakpoint in both local tweakpoints and global breakpoints contexts. Media block omitted.";
+    }
+}
+
+// --------------------------
+// Transition default
+// --------------------------
+// define transition with @include transition;
+//
+// if you need override setting, just specify it as an argument
+// e.g. @include transition(opacity 0.5s ease-out);
+//
+// if you want to choose only specific property to achieve better
+// performance while keeping default timing, use transition-property
+// e.g. @include transition-property(opacity, background);
+// and choose only property you need to transition
+
+@mixin transition($transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1)) {
+    transition: $transition;
+}
+
+@mixin transition-property($property...) {
+    transition-property: $property;
+}
+
+@mixin vishid {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+}
+
+@mixin content-columns {
+    columns: 3;
+    column-gap: ($vr * 3);
+
+    @include respond-to(large) {
+        columns: 2;
+    }
+
+    @include respond-to(medium) {
+        columns: 1;
+    }
+}

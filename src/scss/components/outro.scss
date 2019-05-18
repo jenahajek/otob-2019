@@ -1,0 +1,32 @@
+.outro {
+    background: $color-light;
+    padding: 0 ($vr * 2) ($vr * 2);
+    background: $color-dark;
+    color: $color-text-inverted;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+
+    @include respond-to(small) {
+        padding: 0 $vr $vr;
+    }
+}
+
+.outro__inner {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.outro__heading {
+    @include type-c;
+    color: $color-highlight;
+}
+
+.outro__media {
+    max-width: 100%;
+}

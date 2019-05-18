@@ -1,0 +1,31 @@
+.note {
+    max-width: $reading-column;
+    margin-top: auto;
+    background: $color-muted;
+    color: $color-text;
+    padding: ($vr / 2) $vr;
+    position: relative;
+    margin-bottom: ($vr / 2);
+    text-align: justify;
+
+    &::before {
+        content: 'Poděkování';
+        color: $color-text;
+        line-height: $vr;
+        background: $color-highlight;
+        padding: ($vr / 4) ($vr / 2);
+        position: absolute;
+        left: 0;
+        transform-origin: bottom left;
+        transform: translate(-20%, -80%) rotate(-11deg);
+    }
+}
+
+.note__small-text {
+    max-width: $reading-column;
+    @include type-small;
+    color: $color-text-muted;
+    padding: 0 $vr;
+    text-align: justify;
+    margin-bottom: 0;
+}

@@ -1,0 +1,25 @@
+.section__heading {
+    @include type-b;
+}
+
+.section__heading-span {
+    @include type-sub-b;
+    display: block;
+}
+
+.section__subheading {
+    @include type-c;
+
+    section > & {
+        margin-top: ($vr * 3);
+    }
+}
+
+.section__subheading-span {
+    @include type-sub-c;
+    display: block;
+}
+
+.section__subsubheading {
+    @include type-d;
+}

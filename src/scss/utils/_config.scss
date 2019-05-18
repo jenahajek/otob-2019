@@ -1,0 +1,96 @@
+// ==========================
+// Config
+// ==========================
+
+// --------------------------
+// Breakpoints
+// --------------------------
+$breakpoints: (
+    'small'      : 640px,
+    'medium'     : 940px,
+    'large'      : 1400px,
+) !default;
+
+// --------------------------
+// Color palette map
+// --------------------------
+// 1. set basic palette
+// 2. set common semantic variables
+// 3. use semantic one only when it makes sense ($border-color for border
+//    property)
+// 4. use directly from palette otherwise (palette(gray, light); for section
+//    background
+//
+// http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/
+$palettes: (
+    primary: (
+        base: #635841
+    ),
+    green: (
+        light: #EEF0D6,
+        dark: rgb(0,49,31)
+    ),
+    yellow: (
+        light: rgb(241, 235, 147),
+        base: #ecde12,
+        dark: #b4a801,
+    ),
+    violet: (
+        light: rgba(135, 38, 113, 0.5),
+        base: #872671,
+    ),
+    white: (
+        base: #fff,
+        transparent: rgba(255, 255, 255, 0.6)
+    ),
+    gray: (
+        light: #eee,
+        base: #7a7a7a,
+    ),
+    black: (
+        base: #222
+    ),
+);
+
+@function palette($palette, $tone: 'base') {
+    @return map-get(map-get($palettes, $palette), $tone);
+}
+
+// --------------------------
+// Link colors
+// --------------------------
+$link-color: palette(primary);
+
+// --------------------------
+// Type scale map
+// --------------------------
+//
+// set vertical rhythm https://github.com/markgoodyear/postcss-vertical-rhythm/
+// it needs to be in body and have this syntax
+$ff-primary: 'Bungee Inline', sans-serif;
+// $ff-secondary: 'Sigmar One', cursive;
+$ff-text: 'Open Sans', sans-serif;
+$vr: 24px;
+$base-line-height: $vr;
+
+$color-highlight-light: palette(yellow, light);
+$color-highlight: palette(yellow);
+$color-highlight-dark: palette(yellow, dark);
+
+$color-secondary: palette(violet);
+
+$color-type-sub: $color-highlight;
+$color-type-sub-c: palette(violet);
+
+$color-figcaption: $color-highlight;
+$color-figcaption-dark: $color-highlight-dark;
+$color-text-inverted: palette(white);
+$color-text-muted: palette(gray);
+$color-text: palette(black);
+
+$color-muted: palette(gray, light);
+$color-light: palette(white);
+$color-light-transparent: palette(white, transparent);
+$color-dark: palette(black);
+
+$reading-column: ($vr * 28);

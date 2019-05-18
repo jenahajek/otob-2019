@@ -1,0 +1,126 @@
+.intro {
+    position: relative;
+    z-index: 1000;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: ($vr * 2);
+    text-align: center;
+    color: $color-text;
+    background-repeat: repeat-x;
+    background-position: top center;
+    display: flex;
+    flex-flow: row nowrap;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(105deg, transparent 48%, $color-light 43%);
+        z-index: 1;
+
+        @include respond-to(large) {
+            background: $color-highlight;
+        }
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 57%;
+        background-image: url('../img/intro-bg.jpg');
+        background-size: cover;
+        background-position: right bottom;
+        z-index: -1;
+
+        @include respond-to(large) {
+            display: none;
+        }
+    }
+
+    @include respond-to(small) {
+        padding: $vr;
+    }
+}
+
+.intro__content {
+    flex: 0 0 57%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    justify-content: center;
+
+    @include respond-to(large) {
+        flex: 1 0 100%;
+    }
+}
+
+.intro__heading {
+    @include type-b;
+    max-width: $reading-column;
+    position: relative;
+    margin-bottom: ($vr * 3);
+
+    &::after {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        width: ($vr * 5);
+        height: 2px;
+        bottom: ($vr * -1.5);
+        background: palette(black);
+        left: 50%;
+        margin-left: ($vr * -2.5);
+    }
+}
+
+.intro__text {
+    max-width: $reading-column;
+    font-size: 18px;
+    text-align: justify;
+    margin-bottom: 0;
+}
+
+.intro__info {
+    max-width: $reading-column;
+    display: block;
+    margin-bottom: ($vr * 3);
+
+    &:hover {
+        .intro__info-logo {
+            transform: rotate(-2deg);
+        }
+
+        .intro__info-description {
+            background: $color-highlight;
+
+            @include respond-to(large) {
+                background: $color-secondary;
+                color: $color-text-inverted;
+            }
+        }
+    }
+}
+
+.intro__info-logo {
+    max-width: 100%;
+    margin-bottom: ($vr / 2);
+    transition: transform 0.1s ease-in-out;
+}
+
+.intro__info-description {
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}

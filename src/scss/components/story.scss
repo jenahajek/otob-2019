@@ -1,0 +1,35 @@
+.story {
+    @include wysiwyg;
+    width: 50%;
+    max-width: $reading-column;
+    position: relative;
+    z-index: 1000;
+    padding: 0 ($vr * 2) ($vr * 2);
+
+    @include respond-to(small) {
+        width: 100%;
+        padding: 0 $vr $vr;
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: $color-light-transparent;
+        }
+
+        section,
+        .note,
+        .note__small-text {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    section:not(:first-child) h2 {
+        padding: 2em 0 0;
+    }
+}

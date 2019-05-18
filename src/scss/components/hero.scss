@@ -1,0 +1,43 @@
+.hero {
+    position: relative;
+    z-index: 10;
+    background-image: url('../img/background.jpg');
+    background-size: cover;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: $color-light-transparent;
+    }
+}
+
+.hero__inner {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    position: relative;
+    z-index: 1;
+}
+
+.hero__image{
+    max-width: 130px;
+    margin-bottom: ($vr * 2);
+    transform: translateX(-50%); // hack to solve bug
+}
+
+.hero__heading {
+    @include type-b;
+}
+
+.hero__link {
+    display: block;
+    @include link;
+}

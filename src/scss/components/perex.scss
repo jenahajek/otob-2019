@@ -1,0 +1,19 @@
+.perex {
+    @include content-columns;
+    background: $color-dark;
+    color: $color-text-inverted;
+    padding: ($vr * 5) ($vr * 3);
+    margin: 0 0 ($vr * 3);
+
+    @include respond-to(medium) {
+        padding: ($vr * 3) ($vr * 2);
+    }
+
+    @include respond-to(small) {
+        padding: $vr;
+    }
+}
+
+.perex__text {
+    @include type-perex;
+}

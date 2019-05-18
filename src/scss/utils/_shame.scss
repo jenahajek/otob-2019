@@ -1,0 +1,20 @@
+// ==========================
+// Shame
+// ==========================
+// - this is place for code we're not very proud of. The code which feels dirty
+//   but you don't know/don't have time to deal with it at the moment.
+// - it should be refactored someday later
+// - it lives here so it won't get forgotten
+// - if there is nothing in this file, well done champs! :)
+
+.js-gallery-content img,
+.js-gallery-content video,
+.js-section video {
+    max-width: 100%;
+    margin: 0 0 $vr;
+    min-width: 100%;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}

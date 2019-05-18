@@ -1,0 +1,269 @@
+// --------------------------
+// Base typographic styles
+// --------------------------
+@mixin type-b {
+    font-size: 72px;
+    line-height: 1;
+    margin-bottom: $vr;
+
+    @include respond-to(large) {
+        font-size: 56px;
+    }
+
+    @include respond-to(medium) {
+        font-size: 48px;
+    }
+
+    @include respond-to(small) {
+        font-size: 32px;
+    }
+}
+
+@mixin type-sub-b {
+    font-size: 18px;
+    letter-spacing: -0.4px;
+    line-height: $vr;
+    margin-bottom: $vr;
+    color: $color-text;
+    font-family: $ff-text;
+    text-transform: uppercase;
+    padding: ($vr / 2) ($vr * 2) ($vr / 2) ($vr * 3);
+    margin: 0 ($vr * -1) $vr ($vr * -3);
+    position: relative;
+    font-weight: bold;
+    z-index: 1;
+    max-width: $reading-column;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: $color-type-sub;
+        z-index: -1;
+        transform: skewX(-15deg);
+
+        @include respond-to(small) {
+            right: ($vr);
+        }
+    }
+}
+
+@mixin type-c {
+    font-size: 48px;
+    line-height: 1;
+    margin-bottom: $vr;
+
+    @include respond-to(large) {
+        font-size: 40px;
+    }
+
+    @include respond-to(medium) {
+        font-size: 32px;
+    }
+
+    @include respond-to(small) {
+        font-size: 28px;
+    }
+}
+
+@mixin type-sub-c {
+    @include type-sub-b;
+    color: $color-text-inverted;
+
+    &::after {
+        background: $color-type-sub-c;
+        right: ($vr * 1);
+    }
+}
+
+@mixin type-d {
+    font-size: 32px;
+    line-height: 1.5;
+    margin-bottom: 0;
+
+    @include respond-to(large) {
+        font-size: 28px;
+    }
+
+    @include respond-to(medium) {
+        font-size: 24px;
+    }
+
+    @include respond-to(small) {
+        font-size: 20;
+    }
+}
+
+@mixin type-perex {
+    font-size: 20px;
+    line-height: 36px;
+
+    @include respond-to(medium) {
+        font-size: 18px;
+    }
+}
+
+@mixin type-small {
+    font-size: 14px;
+    line-height: ($vr * 0.8);
+    font-style: italic;
+}
+
+@mixin figcaption {
+    padding: ($vr / 2) $vr;
+    margin: 0 ($vr / -2) 0 $vr;
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%) skewY(-3deg);
+    color: $color-text;
+    font-weight: bold;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background: $color-figcaption;
+        z-index: -1;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: ($vr / 2);
+        background: $color-figcaption-dark;
+        transform: skewY(20deg);
+        transform-origin: bottom right;
+        z-index: -2;
+    }
+}
+
+@mixin figure {
+    position: relative;
+    margin-bottom: ($vr * 1.5);
+    display: inline-block; // prevent wrapping in the middle
+
+    &.figure--top {
+        position: relative;
+
+        figcaption {
+            top: ($vr * 4);
+        }
+    }
+
+    &.figure--left {
+        figcaption {
+            transform: translateY(-100%) skewY(3deg);
+            margin: 0 $vr 0 ($vr / -2);
+
+            &::after {
+                right: auto;
+                left: 0;
+                transform: skewY(-20deg);
+                transform-origin: bottom left;
+            }
+        }
+    }
+}
+
+@mixin link {
+    padding: 1px 2px;
+    margin: -1px -2px;
+    text-decoration: underline;
+    font-weight: bold;
+    text-decoration: underline $color-secondary;
+    color: $color-secondary;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+@mixin wysiwyg {
+    a {
+        @include link;
+    }
+
+    ul {
+        padding-left: 0;
+        margin-bottom: $vr;
+        list-style-type: none;
+    }
+
+    li {
+        margin-bottom: ($vr / 2);
+    }
+
+    figure {
+        @include figure;
+    }
+
+    figcaption {
+        @include figcaption;
+    }
+}
+
+// Define your base font-size here; most elements will inherit this.
+html,
+body {
+    font-family: $ff-text;
+}
+
+// Common margin-bottom for vertical rhythm.
+h1, h2, h3, h4, h5, h6,
+ul, ol, dl,
+fieldset,
+p,
+table,
+pre,
+figcaption,
+.baseline,
+svg text {
+    font-size: 16px;
+    line-height: $vr;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: 'liga' on;
+    font-weight: 400;
+}
+
+em {
+    font-style: italic;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 24px;
+    line-height: 1.5;
+    font-family: $ff-primary;
+}
+
+p {
+    font-size: 16px;
+    line-height: $vr;
+    margin-bottom: $vr;
+    letter-spacing: 0.2px;
+}
+
+.figure {
+    @include figure;
+}
+
+.figure__figcaption {
+    @include figcaption;
+}

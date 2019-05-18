@@ -1,0 +1,13 @@
+.long-form-wrapper {
+    background: $color-light;
+    box-shadow: 0 0 50px 0px rgba(0, 0, 0, 0.2);
+    padding: 0 ($vr * 2) ($vr * 2);
+
+    @include respond-to(medium) {
+        padding: 0 ($vr * 2) ($vr * 2);
+    }
+
+    @include respond-to(small) {
+        padding: 0 $vr $vr;
+    }
+}
