@@ -7,7 +7,7 @@
 //  4 - set names for generated assets
 
 var src  = './src/';  // 1
-var dist = './dist/'; // 2
+var dist = './docs/'; // 2
 
 module.exports = {
   paths : { // 3

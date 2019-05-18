@@ -3,7 +3,7 @@ module.exports={
   entry: "./js/index",
   output:{
     filename:"app.js",
-    path:__dirname+"/dist/js"
+    path:__dirname+"/docs/js"
   },
   module: {
     loaders: [
