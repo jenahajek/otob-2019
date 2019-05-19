@@ -490,10 +490,7 @@ picture {
 
 .hero__image {
   max-width: 130px;
-  margin-bottom: 48px;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%); }
+  margin-bottom: 48px; }
 
 .hero__heading {
   font-size: 72px;
