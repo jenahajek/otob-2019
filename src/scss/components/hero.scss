@@ -30,7 +30,7 @@
 .hero__image{
     max-width: 130px;
     margin-bottom: ($vr * 2);
-    transform: translateX(-50%); // hack to solve bug
+    // transform: translateX(-50%); // hack to solve bug
 }
 
 .hero__heading {
